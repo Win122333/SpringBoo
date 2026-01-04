@@ -3,6 +3,7 @@ package ru.vsu.cs.testPrjct.demo.Entity;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import java.time.LocalDate;
 
@@ -32,6 +33,7 @@ public class StudentEntity {
     @Column(name = "birthday")
     private LocalDate birthday;
     @JoinColumn(name = "univ_id")
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
+    @BatchSize(size = 20)
     private UniversityEntity university;
 }

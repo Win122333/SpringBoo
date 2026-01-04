@@ -4,7 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import ru.vsu.cs.testPrjct.demo.Dto.Filter.StudentFilter;
 import ru.vsu.cs.testPrjct.demo.Service.LecturerService;
 import ru.vsu.cs.testPrjct.demo.Service.StudentService;
 import ru.vsu.cs.testPrjct.demo.Service.UniversityService;
@@ -16,9 +19,13 @@ public class ViewController {
     private final LecturerService lectService;
     private final UniversityService universityService;
     @GetMapping("/student")
-    public String getStudentView(Model model) {
-        var list = studentService.getAll();
+    public String getStudentView(
+            Model model, @ModelAttribute StudentFilter filter
+    ) {
+        var list = studentService.getAllByFilter(filter);
+
         model.addAttribute("students", list);
+        model.addAttribute("filter", filter);
         model.addAttribute("title", "студенты");
         model.addAttribute("message", "список студентов");
         return "students";

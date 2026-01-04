@@ -3,6 +3,7 @@ package ru.vsu.cs.testPrjct.demo.Service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import ru.vsu.cs.testPrjct.demo.Dto.Filter.StudentFilter;
 import ru.vsu.cs.testPrjct.demo.Dto.StudentDTO;
 import ru.vsu.cs.testPrjct.demo.Entity.StudentEntity;
 import ru.vsu.cs.testPrjct.demo.Entity.UniversityEntity;
@@ -11,6 +12,8 @@ import ru.vsu.cs.testPrjct.demo.Repository.StudentRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Filter;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -21,6 +24,13 @@ public class StudentService {
         log.info("getAll");
         return repository.findAll()
                 .stream()
+                .map(mapper::toDto)
+                .toList();
+    }
+    public List<StudentDTO> getAllByFilter(
+            StudentFilter filter
+    ) {
+        return repository.findAllByFilter(filter).stream()
                 .map(mapper::toDto)
                 .toList();
     }

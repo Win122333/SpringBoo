@@ -22,7 +22,7 @@ public class LecturerEntity {
     private String name;
     @Column(name = "city")
     private String city;
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "univ_id")
     private UniversityEntity university;
 }

@@ -7,5 +7,6 @@ import ru.vsu.cs.testPrjct.demo.Entity.StudentEntity;
 import java.util.List;
 
 @Repository
-public interface StudentRepository extends JpaRepository<StudentEntity, Long> {
+public interface StudentRepository
+        extends JpaRepository<StudentEntity, Long>, StudentFilterRepository {
 }

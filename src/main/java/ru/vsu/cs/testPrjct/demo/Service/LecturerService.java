@@ -14,7 +14,7 @@ public class LecturerService {
     private final LecturerRepository repository;
 
     public List<LecturerEntity> getAll() {
-        return repository.findAll();
+        return repository.getAllWithUniversity();
     }
 
     public Optional<LecturerEntity> getById(Long id) {

@@ -7,7 +7,17 @@
 </head>
 <body>
 <div th:insert="~{fragments :: header}"></div>
-
+<br>
+<hr>
+<form method="get" th:action="@{/student}">
+    <input name="surname" type="text" placeholder="фамилия" th:value="${filter.surname()}">
+    <input name="name" type="text" placeholder="имя" th:value="${filter.name()}">
+    <input name="stipend" type="number" placeholder="стипендия" th:value="${filter.stipend()}">
+    <input name="course" type="number" placeholder="курс" th:value="${filter.course()}">
+    <input name="city" type="text" placeholder="город" th:value="${filter.city()}">
+    <button type="submit">Применить фильтры</button>
+</form>
+<hr>
 <div>
     <ul>
         <li th:each="st : ${students}">
