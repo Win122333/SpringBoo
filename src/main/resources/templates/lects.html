@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+<div th:insert="~{fragments :: header}"></div>
+
+<ul>
+  <li th:each="l : ${lectures}">
+    <p th:text="${l}"></p>
+  </li>
+</ul>
+</body>
+</html>

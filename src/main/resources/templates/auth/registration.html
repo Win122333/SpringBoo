@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:insert="~{fragments :: header}"> </div>
+<form method="post" th:action="@{/api/user}">
+    <input name="username" type="text">
+    <input name="password" type="password">
+    <label>Выберите, если преподаватель</label>
+    <input name="isAdmin" type="checkbox">
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+</body>
+</html>

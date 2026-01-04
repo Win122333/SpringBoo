@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<a th:href="@{/student}">Студенты</a>
+<a th:href="@{/university}">Университеты</a>
+<a th:href="@{/lectures}">Преподаватели</a>
+<br>
+<hr>
+<a th:href="@{/registration}">РЕГИСТРАЦИЯ</a>
+<label>или</label>
+<a th:href="@{/login}">ВОЙТИ</a>
+<a th:href="@{/logout}">ВЫЙТИ</a>
+</body>
+</html>
