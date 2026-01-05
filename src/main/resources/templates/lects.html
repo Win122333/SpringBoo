@@ -8,9 +8,23 @@
 </head>
 <body>
 <div th:insert="~{fragments :: header}"></div>
-
+<br>
+<hr>
+<form method="get" th:action="@{/lectures}">
+    <input name="city" type="text" placeholder="Город" th:value="${filter.city()}">
+    <br>
+    <label for="page">Номер страницы
+        <input id="page" type="number" name="page" th:value="${lectures.metadata.page}">
+    </label>
+    <label for="size">Размер
+        <input id="size" type="number" name="size" th:value="${lectures.metadata.size}">
+    </label>
+    <button type="submit">Применить фильтр</button>
+</form>
+<h5 style="text-align: center;" th:text="|Всего элементов: ${lectures.metadata.totalElements}|"></h5>
+<hr>
 <ul>
-  <li th:each="l : ${lectures}">
+  <li th:each="l : ${lectures.getContent}">
     <p th:text="${l}"></p>
   </li>
 </ul>

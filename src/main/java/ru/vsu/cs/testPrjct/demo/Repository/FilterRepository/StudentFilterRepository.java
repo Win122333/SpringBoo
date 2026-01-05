@@ -1,4 +1,4 @@
-package ru.vsu.cs.testPrjct.demo.Repository;
+package ru.vsu.cs.testPrjct.demo.Repository.FilterRepository;
 
 import ru.vsu.cs.testPrjct.demo.Dto.Filter.StudentFilter;
 import ru.vsu.cs.testPrjct.demo.Entity.StudentEntity;

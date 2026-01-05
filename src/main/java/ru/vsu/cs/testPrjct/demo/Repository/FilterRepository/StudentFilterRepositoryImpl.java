@@ -1,16 +1,13 @@
-package ru.vsu.cs.testPrjct.demo.Repository;
+package ru.vsu.cs.testPrjct.demo.Repository.FilterRepository;
 
-import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQuery;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.support.Querydsl;
 import ru.vsu.cs.testPrjct.demo.Dto.Filter.StudentFilter;
 import ru.vsu.cs.testPrjct.demo.Dto.QPredicate;
 import ru.vsu.cs.testPrjct.demo.Entity.QStudentEntity;
 import ru.vsu.cs.testPrjct.demo.Entity.QUniversityEntity;
 import ru.vsu.cs.testPrjct.demo.Entity.StudentEntity;
-import ru.vsu.cs.testPrjct.demo.Entity.UserEntity;
 
 import java.util.List;
 @RequiredArgsConstructor

@@ -15,12 +15,20 @@
     <input name="stipend" type="number" placeholder="стипендия" th:value="${filter.stipend()}">
     <input name="course" type="number" placeholder="курс" th:value="${filter.course()}">
     <input name="city" type="text" placeholder="город" th:value="${filter.city()}">
+    <br>
+    <label for="page">Номер страницы
+        <input id="page" type="number" name="page" th:value="${students.metadata.page}">
+    </label>
+    <label for="size">Размер
+        <input id="size" type="number" name="size" th:value="${students.metadata.size}">
+    </label>
     <button type="submit">Применить фильтры</button>
 </form>
+<h5 style="text-align: center;" th:text="|Всего элементов: ${students.metadata.totalElements}|"></h5>
 <hr>
 <div>
     <ul>
-        <li th:each="st : ${students}">
+        <li th:each="st : ${students.getContent()}">
             <p th:text="${st}">Данные студента</p>
         </li>
     </ul>

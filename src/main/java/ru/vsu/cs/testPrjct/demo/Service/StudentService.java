@@ -1,7 +1,11 @@
 package ru.vsu.cs.testPrjct.demo.Service;
 
+import com.querydsl.core.types.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.vsu.cs.testPrjct.demo.Dto.Filter.StudentFilter;
 import ru.vsu.cs.testPrjct.demo.Dto.StudentDTO;
@@ -33,6 +37,12 @@ public class StudentService {
         return repository.findAllByFilter(filter).stream()
                 .map(mapper::toDto)
                 .toList();
+    }
+    public Page<StudentDTO> getAllPagesByFilter(Predicate predicate, Pageable pageable) {
+        Page<StudentEntity> page = repository.findAll(predicate, pageable);
+        return new PageImpl<>(
+                page.get().map(mapper::toDto).toList(), pageable, page.getTotalElements()
+        );
     }
     public StudentDTO getById(Long id) {
         log.info("getById");

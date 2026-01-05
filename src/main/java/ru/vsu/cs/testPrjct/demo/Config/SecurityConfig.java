@@ -17,7 +17,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         (x) -> x.requestMatchers("/registration", "/", "/api/user", "/api-docs")
                                 .permitAll()
-                                .requestMatchers("/student").permitAll()//.authenticated()
+                                .requestMatchers("/student").authenticated()
                                 .anyRequest().hasRole("ADMIN"))
                 .formLogin(
                         (x) -> x
